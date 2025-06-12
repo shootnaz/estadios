@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Estadios del Fútbol Argentino</title>
+  <link rel="stylesheet" href="css/estilos.css" />
+</head>
+<body>
+  <header>
+    <h1>Estadios del Fútbol Argentino</h1>
+    <nav>
+      <ul>
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#formulario">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio">
+      <input type="text" id="buscador" placeholder="Escribí el nombre del club y presioná ENTER..." />
+      <div id="resultado"></div>
+    </section>
+<section id="inicio">
+  <input type="text" id="buscador" placeholder="Escribí el nombre del club y presioná ENTER..." />
+  <div id="resultado"></div>
+  
+  <!-- Contenedor para el mapa -->
+  <div id="map" style="width: 100%; height: 400px; margin-top: 20px;"></div>
+  <script>
+  let map;
+  let markers = {};
+
+  function initMap() {
+    // Centro de Argentina
+    const argentina = { lat: -34.6037, lng: -58.3816 };
+    function initMap() {
+  const argentina = { lat: -34.6037, lng: -58.3816 };
+
+  const map = new google.maps.Map(document.getElementById("map"), {
+    zoom: 5,
+    center: argentina,
+  });
+
+  const estadiosCoords = {
+    river: { lat: -34.5456, lng: -58.4497 },
+    boca: { lat: -34.6358, lng: -58.3644 },
+    racing: { lat: -34.6758, lng: -58.3643 },
+    independiente: { lat: -34.6728, lng: -58.3551 },
+    sarmiento: { lat: -34.5913, lng: -60.9484 },
+    instituto: { lat: -31.4240, lng: -64.1898 },
+    talleres: { lat: -31.3847, lng: -64.2329 },
+    sanlorenzo: { lat: -34.6421, lng: -58.4663 },
+    lanus: { lat: -34.7114, lng: -58.3910 },
+    velez: { lat: -34.6640, lng: -58.4649 },
+    rosario: { lat: -32.9357, lng: -60.6556 },
+    platense: { lat: -34.5454, lng: -58.4807 }
+  };
+
+  let markers = {};
+
+  for (const club in estadiosCoords) {
+    markers[club] = new google.maps.Marker({
+      position: estadiosCoords[club],
+      map: map,
+      title: club.toUpperCase(),
+    });
+  }
+
+  // Pasar el mapa y marcadores al script.js
+  setMapInstance(map, markers);
+}
+
+
+    map = new google.maps.Map(document.getElementById("map"), {
+      zoom: 5,
+      center: argentina,
+    });
+
+    // Coordenadas de los estadios
+    const estadiosCoords = {
+      river: { lat: -34.5456, lng: -58.4497 },
+      boca: { lat: -34.6358, lng: -58.3644 },
+      racing: { lat: -34.6758, lng: -58.3643 },
+      independiente: { lat: -34.6728, lng: -58.3551 },
+      sarmiento: { lat: -34.5913, lng: -60.9484 },
+      instituto: { lat: -31.4240, lng: -64.1898 },
+      talleres: { lat: -31.3847, lng: -64.2329 },
+      sanlorenzo: { lat: -34.6421, lng: -58.4663 },
+      lanus: { lat: -34.7114, lng: -58.3910 },
+      velez: { lat: -34.6640, lng: -58.4649 },
+      rosario: { lat: -32.9357, lng: -60.6556 },
+      platense: { lat: -34.5454, lng: -58.4807 }
+    };
+
+    // Crear marcadores en el mapa
+    for (const club in estadiosCoords) {
+      markers[club] = new google.maps.Marker({
+        position: estadiosCoords[club],
+        map: map,
+        title: club.toUpperCase(),
+      });
+    }
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlSComVRJmXBmgYFy85HoIQPW2WC9VR50&callback=initMap" async defer></script>
+
+</section>
+
+    <section id="formulario">
+      <h2>Formulario de Contacto</h2>
+      <form>
+        <label for="nombre">Nombre y Apellido:</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="telefono">Teléfono:</label>
+        <input type="tel" id="telefono" name="telefono" />
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="4" required></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  
+
+  <script src="js/script.js"></script>
+</body>
+</html>
